@@ -14,20 +14,4 @@
   </v-container>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import Payments from '@/components/Payments.vue';
-import Persons from '@/components/Persons.vue';
-import ProductsTable from '@/components/product-table/ProductTable.vue';
-import Values from '@/components/Values.vue';
-
-export default Vue.extend({
-  name: 'Home',
-  components: {
-    Payments,
-    Persons,
-    ProductsTable,
-    Values,
-  },
-});
-</script>
+<script lang="ts" src="./Home.ts"></script>

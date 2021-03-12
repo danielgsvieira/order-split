@@ -6,7 +6,7 @@ export class PersonsState {
   constructor(persons: Person[] = [
     { name: 'Bela' },
     { name: 'Dan' },
-    { name: 'Ed' },
+    { name: 'Letiça' },
     { name: 'Orio' },
   ]) {
     this.persons = persons;

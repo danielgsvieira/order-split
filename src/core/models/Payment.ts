@@ -1,9 +1,9 @@
 export class Payment {
   public payer: string;
 
-  public value: number|undefined;
+  public value: number;
 
-  constructor(payer: string = '', value: number|undefined = undefined) {
+  constructor(payer: string = '', value: number = 0) {
     this.payer = payer;
     this.value = value;
   }

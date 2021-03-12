@@ -1,19 +1,3 @@
-<template>
-  <v-row align="center" no-gutters>
-    <v-checkbox
-      :class="(isLast(index, persons)) ? 'mr-10 my-0' : 'my-0'"
-      v-for="(person, index) in persons"
-      :key="person.name"
-      :label="person.name"
-      color="primary"
-      hide-details
-      :input-value="item.isPersonIncluded(person.name)"
-      @click.stop="onRowUpdate(item, person.name)"
-    ></v-checkbox>
-  </v-row>
-</template>
-
-<script lang="ts">
 import Vue from 'vue';
 import { mapActions, mapGetters } from 'vuex';
 import { StoreProduct } from '@/core/models/StoreProduct';
@@ -38,8 +22,12 @@ export default Vue.extend({
       return index !== array.length - 1;
     },
     onRowUpdate(product: StoreProduct, personName: string): void {
-      this.updatePersonsOfProduct({product, personName});
+      this.updatePersonsOfProduct({ product, personName });
+    },
+    selectAll(product: StoreProduct): void {
+      for (let i = 0; i < this.persons.length; i += 1) {
+        this.updatePersonsOfProduct({ product, personName: this.persons[i].name });
+      }
     },
   },
 });
-</script>

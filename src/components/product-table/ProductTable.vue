@@ -16,55 +16,20 @@
         <persons-cell :item="item"></persons-cell>
       </template>
 
+      <template v-slot:item.remove="{ item }">
+        <v-icon @click="removeProduct(item)">mdi-delete</v-icon>
+      </template>
+
       <template v-slot:footer>
+        <v-row class="mt-1 mx-1 px-2">
+          <v-col>
+            Valor total: {{ toCurrency(totalPrice) }}
+          </v-col>
+        </v-row>
         <new-product-form></new-product-form>
       </template>
     </v-data-table>
   </v-container>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import { mapActions, mapGetters } from 'vuex';
-import PersonsCell from '@/components/product-table/PersonsCell.vue';
-import NewProductForm from '@/components/product-table/NewProductForm.vue';
-import { toCurrency } from '@/core/helpers/currency';
-
-export default Vue.extend({
-  name: 'ProductTable',
-  components: {
-    PersonsCell,
-    NewProductForm,
-  },
-  data: () => ({
-    tableHeaders: [
-          {
-            text: 'Nome',
-            align: 'start',
-            sortable: true,
-            value: 'name',
-          },
-          {
-            text: 'Preço',
-            align: 'center',
-            sortable: true,
-            value: 'value',
-          },
-          {
-            text: 'Pessoas',
-            align: 'start',
-            value: 'persons',
-          },
-    ],
-  }),
-  computed: {
-    ...mapGetters('productsStore', ['products']),
-  },
-  methods: {
-    ...mapActions('productsStore', ['addProduct', 'updatePersonsOfProduct']),
-    toCurrency(value: number): string {
-      return toCurrency(value, 'R$', ',');
-    },
-  },
-});
-</script>
+<script lang="ts" src="./ProductTable.ts"></script>
