@@ -1,0 +1,23 @@
+@import './_variables.scss';
+@import './_reset.scss';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: $text;
+
+  *::placeholder {
+    color: $lightText;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:visited {
+      color: inherit;
+    }
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
